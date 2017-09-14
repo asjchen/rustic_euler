@@ -1,0 +1,12 @@
+[package]
+name = "rustic_euler"
+version = "0.1.0"
+authors = ["Andy Chen <asjchen15@gmail.com>"]
+
+[lib]
+name = "problems"
+path = "src/lib/problems.rs"
+
+[[bin]]
+name = "run_problems"
+path = "src/bin/run_problems.rs"
