@@ -1,5 +1,5 @@
-// Problem 3
-// Largest prime factor
+// Problem 7
+// 10001st prime
 
 // TODO: move into a common math library
 // Runs the Sieve of Eratosthenes to find primes below the bound
@@ -19,29 +19,17 @@ fn sieve_primes(bound: i64) -> Vec<i64> {
     prime_list
 }
 
-// Finds the largest prime factor of n
-fn largest_prime_factor(n: i64) -> i64 {
-    let prime_list = sieve_primes((n as f64).sqrt() as i64);
-    let mut remain_num = n;
-    let mut largest_prime: i64 = 1;
-
-    for prime in prime_list {
-        while remain_num % prime == 0 {
-            if largest_prime < prime {
-                largest_prime = prime;
-            }
-            remain_num /= prime;
-        }
-    }
-    if remain_num > largest_prime {
-        largest_prime = remain_num;
-    }
-    largest_prime
+// Finds the nth prime number
+fn nth_prime(n: usize) -> i64 {
+    // Theoretical bound is from the Prime Number Theorem, 
+    // but we double it to account for the variance of pi(x)
+    let theoretical_bound = ((n as f64) * (n as f64).ln()).ceil();
+    let prime_list = sieve_primes(2 * (theoretical_bound as i64));
+    prime_list[n - 1]
 }
 
-
 pub fn solve() -> String {
-    largest_prime_factor(600851475143).to_string()
+    nth_prime(10001).to_string()
 }
 
 
@@ -49,6 +37,6 @@ pub fn solve() -> String {
 mod tests {
     #[test]
     fn test_small() {
-        assert_eq!(super::largest_prime_factor(13195), 29);
+        assert_eq!(super::nth_prime(6), 13);
     }
 }
