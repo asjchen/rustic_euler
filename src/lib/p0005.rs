@@ -1,5 +1,5 @@
 // Problem 5
-// Largest palindrome product
+// Smallest multiple
 
 use std::cmp;
 

@@ -5,8 +5,14 @@ authors = ["Andy Chen <asjchen15@gmail.com>"]
 
 [lib]
 name = "problems"
-path = "src/lib/problems.rs"
+path = "./src/lib/problems.rs"
 
 [[bin]]
 name = "run_problems"
-path = "src/bin/run_problems.rs"
+path = "./src/bin/run_problems.rs"
+
+[dependencies.prime]
+path = "./pkg/prime"
+
+[dependencies.series]
+path = "./pkg/series"
