@@ -13,4 +13,5 @@ pub fn main() {
     println!("Problem 8: {}", problems::p0008::solve());
     println!("Problem 9: {}", problems::p0009::solve());
     println!("Problem 10: {}", problems::p0010::solve());
+    println!("Problem 11: {}", problems::p0011::solve());
 }
