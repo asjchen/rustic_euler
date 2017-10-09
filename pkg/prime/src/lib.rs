@@ -16,3 +16,23 @@ pub fn sieve_primes(bound: i64) -> Vec<i64> {
     }
     prime_list
 }
+
+// Find the number of divisors of n given a list of primes
+pub fn num_divisors_given_primes(n: i64, prime_list: &Vec<i64>) -> i32 {
+    let mut count = 1;
+    let mut remain = n;
+    let mut prime_idx = 0;
+    while prime_idx < prime_list.len() && prime_list[prime_idx] * prime_list[prime_idx] <= remain {
+        let mut prime_power = 0;
+        while remain % prime_list[prime_idx] == 0 {
+            prime_power += 1;
+            remain /= prime_list[prime_idx];
+        }
+        count *= prime_power + 1;
+        prime_idx += 1;
+    }
+    if remain > 1 {
+        count *= 2;
+    }
+    count
+}
